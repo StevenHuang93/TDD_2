@@ -28,7 +28,10 @@ namespace TestProject2
 
             _budgetRepo.GetAll().Returns(a);
 
-            var service =
+            var service = new BudgetService(_budgetRepo);
+
+            service.Query(new System.DateTime(2022, 12, 01), new System.DateTime(2022, 12, 01));
+
 
 
             Assert.Pass();

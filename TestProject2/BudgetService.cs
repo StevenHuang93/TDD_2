@@ -18,9 +18,35 @@ namespace TestProject2
 
         public decimal Query(DateTime start, DateTime end)
         {
-            var reuslt = _budget.GetAll();
+            var result = _budget.GetAll();
+
+            var queryStart = start.ToString("yyyyMM");
+
+            var queryEnd = end.ToString("yyyyyMM");
+
+
+
+            if (start.Year == end.Year && start.Month == end.Month)
+            {
+                var diff = end.Date - start.Date;
+
+                var diffStart = diff.TotalDays + 1; // 同年月跨日
+
+                var monthsday = DateTime.DaysInMonth(start.Year, start.Month); // 當月有幾天
+
+                var budgetResult = result.FirstOrDefault(a => a.YearMonth == queryStart);
+
+                if (budgetResult != null)
+                {
+                    var reuslt = (diffStart / monthsday) * budgetResult.Amount;
+                }
+
+
+            }
 
             return 0;
         }
+
+        
     }
 }

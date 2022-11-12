@@ -28,7 +28,7 @@ namespace TestProject2
 
             _budgetRepo.GetAll().Returns(a);
 
-            var service = 
+            var service =
 
 
             Assert.Pass();

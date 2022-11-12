@@ -85,7 +85,7 @@ namespace TestProject2
 
             var diff = end.Date - start.Date;
 
-            if (diff <= 0)
+            if (diff.Days <= 0)
             {
                 return 0m;
             }

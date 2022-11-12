@@ -22,7 +22,7 @@ namespace TestProject2
             {
                 new Budget()
                 {
-                     YearMonth="202212", Amount=3000
+                     YearMonth="202212", Amount=3100
                 },
             };
 
@@ -30,11 +30,9 @@ namespace TestProject2
 
             var service = new BudgetService(_budgetRepo);
 
-            service.Query(new System.DateTime(2022, 12, 01), new System.DateTime(2022, 12, 01));
+            var result = service.Query(new System.DateTime(2022, 12, 01), new System.DateTime(2022, 12, 31));
 
-
-
-            Assert.Pass();
+            Assert.AreEqual(3100m, result);
         }
     }
 }

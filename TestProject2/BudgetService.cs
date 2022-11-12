@@ -24,13 +24,13 @@ namespace TestProject2
 
             var queryEnd = end.ToString("yyyyyMM");
 
-
+            decimal reuslt = 0;
 
             if (start.Year == end.Year && start.Month == end.Month)
             {
                 var diff = end.Date - start.Date;
 
-                var diffStart = diff.TotalDays + 1; // 同年月跨日
+                var diffStart = diff.Days + 1; // 同年月跨日
 
                 var monthsday = DateTime.DaysInMonth(start.Year, start.Month); // 當月有幾天
 
@@ -38,13 +38,13 @@ namespace TestProject2
 
                 if (budgetResult != null)
                 {
-                    var reuslt = (diffStart / monthsday) * budgetResult.Amount;
+                    reuslt = (diffStart / monthsday) * budgetResult.Amount;
                 }
 
 
             }
 
-            return 0;
+            return reuslt;
         }
 
         

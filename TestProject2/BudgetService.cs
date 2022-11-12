@@ -21,8 +21,6 @@ namespace TestProject2
         {
             var result = _budget.GetAll();
 
-
-
             var queryEnd = end.ToString("yyyyyMM");
 
             decimal reuslt = 0;
@@ -86,6 +84,11 @@ namespace TestProject2
             var queryStart = start.ToString("yyyyMM");
 
             var diff = end.Date - start.Date;
+
+            if (diff <= 0)
+            {
+                return 0m;
+            }
 
             decimal diffStart = diff.Days + 1; // 同年月跨日
 
